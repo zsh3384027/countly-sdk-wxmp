@@ -1,0 +1,32 @@
+<template>
+  <view class="container" style="background: white;">
+    <view>上报页面</view>
+  </view>
+</template>
+<style lang='less' scoped>
+  .container {
+    
+  }
+</style>
+<script>
+  import wepy from 'wepy'
+
+  export default class HomeMe extends wepy.page {
+    config = {
+      navigationBarTitleText: '我要上报'
+    }
+    data = {
+    }
+    components = {
+    }
+    mixins = []
+    watch = {}
+    computed = {}
+    events = {}
+    methods = {
+    }
+    onLoad() {
+    }
+    onShow() {}
+  }
+</script>

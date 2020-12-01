@@ -1,0 +1,99 @@
+<template>
+  <web-view src="{{serverUrl}}"></web-view>
+</template>
+<style lang="less" scoped>
+
+</style>
+<script>
+  import wepy from 'wepy'
+  // import gData from '@/libs/gData'
+  import {compareVersion} from '@/libs/Util'
+  // import Http from '@/libs/Http'
+  // import {
+  //   getObjectByKey
+  // } from '@/libs/Storage'
+  // import {openLoading, closeLoading, toast} from '@/libs/widget/index'
+
+  export default class Webview extends wepy.page {
+    config = {
+      pageOrientation: 'auto',
+      enablePullDownRefresh: false,
+      disableScroll: true,
+      navigationBarTitleText: ''
+    }
+    components = {}
+
+    mixins = []
+
+    data = {
+      serverUrl: '',
+      cachedOptions: null,
+      needRotateScreen: false
+    }
+
+    watch = {}
+
+    computed = {}
+
+    methods = {}
+
+    events = {}
+
+    async redirectUrl(options) {
+      // console.log(options)
+      wepy.setNavigationBarTitle({
+        title: options.displayName || '加载中...'
+      })
+      if (options.needRotateScreen && options.needRotateScreen === 'true') {
+        // 是否需要旋转屏幕
+        this.needRotateScreen = true
+      }
+      if (this.userInfo && (Date.now() - this.userInfo.tokenGenerTime) > 7200000) {
+        let success = await this.doLogin()
+        if (success) {
+          this.$parent.globalData.userInfo = this.userInfo
+        }
+      }
+      let url = ''
+      if (options.serverUrl) {
+        /** 通过url加载市民通页面 */
+        url = decodeURIComponent(options.serverUrl)
+      }
+
+      this.serverUrl = url
+      this.$apply()
+    }
+
+    onReady() {
+      if (this.needRotateScreen) {
+        let systemInfo = this.$parent.globalData.systemInfo
+        if (compareVersion(systemInfo.SDKVersion, '2.4.0') >= 0) {
+          // 支持 "pageOrientation": "auto" 属性
+          wepy.showModal({
+            title: '提示',
+            showCancel: false,
+            confirmText: '关闭',
+            content: '开启屏幕旋转，横屏查看效果更好。'
+          })
+        } else {
+          wepy.showModal({
+            title: '提示',
+            showCancel: false,
+            confirmText: '关闭',
+            content: '当前微信版本过低，无法旋转屏幕查看，请升级到最新微信版本后重试。'
+          })
+        }
+      }
+    }
+
+    onLoad(options) {
+      this.cachedOptions = options
+    }
+    onShow() {
+      this.userInfo = this.$parent.globalData.userInfo
+      if (this.cachedOptions && !this.serverUrl) {
+        this.redirectUrl(this.cachedOptions)
+      }
+    }
+  }
+</script>

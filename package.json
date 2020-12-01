@@ -1,0 +1,34 @@
+{
+  "name": "@egova/countly-sdk-wxmp",
+  "version": "1.0.0",
+  "description": "微信小程序countly SDK",
+  "main": "lib/countly.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wechat",
+    "countly"
+  ],
+  "author": "zhangshaohua@egova.com.cn",
+  "license": "MIT",
+  "homepage": "https://count.ly/",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/zsh3384027/countly-sdk-wxmp.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.3.11"
+  }
+}

@@ -1,0 +1,61 @@
+{
+	 //输入‘wpyPage’之后按 Tab就可以直接出来wepy的page页面模板
+	 "Print to wepy page template": {
+		"prefix": "wpyPage",
+		"body": [
+				"<template>",
+				"  <view>",
+				"  </view>",
+				"</template>",
+				"<style lang='less' scoped>",
+				"",
+				"</style>",
+				"<script>",
+				"  import wepy from 'wepy'",
+				"  export default class Test extends wepy.page {",
+				"    config = {}",
+				"    data = {}",
+				"    components = {}",
+				"    mixins = []",
+				"    watch = {}",
+				"    computed = {}",
+				"    events = {}",
+				"    methods = {}",
+				"    onLoad() {}",
+				"    onShow() {}",
+				"  }",
+				"</script>",
+		],
+		"description": "Log output to wepy page template"
+},
+
+//输入‘wpyCom’之后按 Tab就可以直接出来wepy的component组件模板
+"Print to wepy component template": {
+	"prefix": "wpyCom",
+	"body": [
+			"<template>",
+			"  <view>",
+			"  </view>",
+			"</template>",
+			"<style lang='less' scoped>",
+			"",
+			"</style>",
+			"<script>",
+			"  import wepy from 'wepy'",
+			"  export default class Test extends wepy.component {",
+			"    config = {}",
+			"    props = {}",
+			"    data = {}",
+			"    components = {}",
+			"    mixins = []",
+			"    watch = {}",
+			"    computed = {}",
+			"    events = {}",
+			"    methods = {}",
+			"    onLoad() {}",
+			"}",
+			"</script>"
+	],
+	"description": "Log output to wepy component template"
+},
+}

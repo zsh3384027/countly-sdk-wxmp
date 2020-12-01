@@ -1,0 +1,17 @@
+{
+  "name": "native",
+  "version": "1.0.0",
+  "description": "微信小程序country原生demo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "countly"
+  ],
+  "author": "zhangshaohua@egova.com.cn",
+  "license": "ISC",
+  "dependencies": {
+    "@egova/countly-sdk-wxmp": "git+http://192.168.177.251:8000/npm/base/countly-sdk-wxmp.git#v1.0.0"
+  }
+}

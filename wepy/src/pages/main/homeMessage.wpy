@@ -1,0 +1,32 @@
+<template>
+  <view class="container" style="background: white;">
+    <view>智信Message</view>
+  </view>
+</template>
+<style lang='less' scoped>
+  .container {
+
+  }
+</style>
+<script>
+  import wepy from 'wepy'
+
+  export default class HomeMessage extends wepy.page {
+    config = {
+      navigationBarTitleText: '智信Message'
+    }
+    data = {
+    }
+    components = {
+    }
+    mixins = []
+    watch = {}
+    computed = {}
+    events = {}
+    methods = {
+    }
+    onLoad() {
+    }
+    onShow() {}
+  }
+</script>

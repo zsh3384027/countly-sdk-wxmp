@@ -1,0 +1,49 @@
+<template>
+  <view class="container" style="background: white;">
+    <view>智信Main</view>
+    <button @tap="hotCity">获取热门城市</button>
+    <button @tap="nextPage">进入下一个页面</button>
+  </view>
+</template>
+<style lang='less' scoped>
+  .container {
+
+  }
+</style>
+<script>
+  import wepy from 'wepy'
+  import Http from '@/libs/Http.js'
+
+  export default class HomeMain extends wepy.page {
+    config = {
+      navigationBarTitleText: '智信Main'
+    }
+    data = {
+    }
+    components = {
+    }
+    mixins = []
+    watch = {}
+    computed = {}
+    events = {}
+    methods = {
+      nextPage() {
+        wepy.navigateTo({
+          url: '/pages/main/report'
+        })
+      },
+      hotCity() {
+        Http.ajax({
+          method: 'GET',
+          methodName: 'v2/city/top',
+          params: {
+            key: 'f8600b1144764d948f63ff8b3308f65e'
+          }
+        })
+      }
+    }
+    onLoad() {
+    }
+    onShow() {}
+  }
+</script>

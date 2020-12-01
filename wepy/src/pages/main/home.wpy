@@ -1,0 +1,121 @@
+<template>
+  <view class="container" style="background: white;">
+    <view class="guide-intro">
+      <view class="guide-text">智信是面向智慧城管领域领先的移动端软件平台，内置扫码，AI图像识别，即时通讯，视频通话，H5混合框架，微信对接多种功能接口，覆盖城管，执法，多网，市政环卫多个行业的专业功能插件，全面提升赋能智能移动端。</view>
+      <view class="guide-botton" @tap="gotoHome">进入智信</view>
+    </view>
+  </view>
+</template>
+<style lang='less' scoped>
+  .container {
+    text-align: center;
+  }
+  .guide-bg{
+    width: 90%;
+    height: 210px;
+    margin: 15rpx 5% 25rpx;
+  }
+
+  .guide-zhixin{
+    margin-top: 30px;
+    height: 77px;
+    width: 280px;
+  }
+  .guide-intro{
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+  .guide-image{
+    position: relative;
+
+  }
+  .guide-left{
+      position: absolute;
+      left: 0;
+      top: 20px;
+      width: 120px;
+      height: 240px;
+    }
+    .guide-right{
+      position: absolute;
+      right: 0;
+      top: 100px;
+      width: 80px;
+      height: 320px;
+    }
+  .guide-text{
+    margin: 0 60rpx;
+    font-size: 16px;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(20,40,65,1);
+    text-align: justify;
+    text-indent: 2em;
+  }
+  .guide-botton{
+    background:linear-gradient(90deg,rgba(0,145,250,1) 0%,rgba(80,95,220,1) 100%);
+    box-shadow:0rpx 8rpx 16rpx 0rpx rgba(0,0,0,0.15);
+    border-radius:4rpx;
+    margin: 50rpx 30rpx 0 30rpx;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: white;
+    font-size:18px;
+    font-family:PingFangSC-Semibold,PingFang SC;
+    font-weight:600;
+  }
+
+  @media (min-width: 720px) {
+    .guide-bg{
+      height: 500px;
+    }
+  }
+   @media (min-width: 1024px) {
+    .guide-bg{
+      height: 300px;
+    }
+    .guide-left{
+      top: 40px;
+      width: 160px;
+      height: 300px;
+    }
+    .guide-right{
+      top: 120px;
+      height: 400px;
+      width: 100px;
+    }
+  }
+</style>
+<script>
+  import wepy from 'wepy'
+
+  export default class Home extends wepy.page {
+    config = {
+      navigationBarTitleText: '智信'
+    }
+    data = {
+      height: 0
+    }
+    components = {
+    }
+    mixins = []
+    watch = {}
+    computed = {}
+    events = {}
+    methods = {
+      gotoHome() {
+        wepy.switchTab({
+          url: '/pages/main/homeMain'
+        })
+      }
+    }
+    onLoad() {
+      this.height = this.$root.$parent.globalData.systemInfo.screenHeight
+    }
+    onShow() {}
+  }
+</script>
